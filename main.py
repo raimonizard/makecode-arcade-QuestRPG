@@ -236,14 +236,17 @@ def game2():
             snake = sprites.create(assets.image("""
                 snake
             """), SpriteKind.Snake_mob)
+            animation.run_image_animation(snake, 
+                assets.animation("""
+                    snake_anim
+            """),
+            200,
+            True)
             statusbar = statusbars.create(30, 3, StatusBarKind.health)
             statusbar.set_color(2, 13)
             statusbar.set_status_bar_flag(StatusBarFlag.SMOOTH_TRANSITION, True)
             statusbar.attach_to_sprite(snake)
             sprites.set_data_number(snake, "HP", 4)
-            animation.run_image_animation(snake, assets.animation("""
-                snake_anim
-            """), 200, True)
             list_mob22222.append(snake)
 
     def create_mob_cap_fish(list_mob22: List[Sprite], how_many_mobs5: number):
@@ -997,8 +1000,6 @@ def game2():
         def on_throttle2():
             info.change_life_by(-2)
             scene.camera_shake(4, 200)
-            sprites.destroy(otherSprite322, effects.ashes, 350)
-            otherSprite322.destroy()
             music.thump.play()
         timer.throttle("action", 500, on_throttle2)
     sprites.on_overlap(SpriteKind.player, SpriteKind.Phantom_boss_mob, on_on_overlap20)
@@ -1415,13 +1416,13 @@ def game2():
     # Funciones para que te sigan los enemigos al detectarte a una distancia "custom" segun el tipo de mob
     def on_on_update():
         for value24 in sprites.all_of_kind(SpriteKind.Monster_mob):
-            if value24.x > mySprite.x - 20 and value24.x < mySprite.x + 20 and (value24.x > mySprite.x - 20 and value24.x < mySprite.x + 20):
+            if value24.x > mySprite.x - 30 and value24.x < mySprite.x + 30 and (value24.x > mySprite.x - 30 and value24.x < mySprite.x + 30):
                 value24.follow(mySprite, 20)
     game.on_update(on_on_update)
 
     def on_on_update2():
         for value43 in sprites.all_of_kind(SpriteKind.Phantom_mob):
-            if value43.x > mySprite.x - 30 and value43.x < mySprite.x + 30 and (value43.x > mySprite.x - 30 and value43.x < mySprite.x + 30):
+            if value43.x > mySprite.x - 50 and value43.x < mySprite.x + 50 and (value43.x > mySprite.x - 50 and value43.x < mySprite.x + 50):
                 value43.follow(mySprite, 75)
     game.on_update(on_on_update2)
 
@@ -1433,7 +1434,7 @@ def game2():
 
     def on_on_update4():
         for value23 in sprites.all_of_kind(SpriteKind.Crab_mob):
-            if value23.x > mySprite.x - 8 and value23.x < mySprite.x + 8 and (value23.x > mySprite.x - 8 and value23.x < mySprite.x + 8):
+            if value23.x > mySprite.x - 20 and value23.x < mySprite.x + 20 and (value23.x > mySprite.x - 20 and value23.x < mySprite.x + 20):
                 value23.follow(mySprite, 8)
     game.on_update(on_on_update4)
 

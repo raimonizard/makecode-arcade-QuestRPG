@@ -230,14 +230,14 @@ function game2() {
             snake = sprites.create(assets.image`
                 snake
             `, SpriteKind.Snake_mob)
+            animation.runImageAnimation(snake, assets.animation`
+                    snake_anim
+            `, 200, true)
             statusbar = statusbars.create(30, 3, StatusBarKind.Health)
             statusbar.setColor(2, 13)
             statusbar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
             statusbar.attachToSprite(snake)
             sprites.setDataNumber(snake, "HP", 4)
-            animation.runImageAnimation(snake, assets.animation`
-                snake_anim
-            `, 200, true)
             list_mob22222.push(snake)
         }
     }
@@ -1012,8 +1012,6 @@ function game2() {
         timer.throttle("action", 500, function on_throttle2() {
             info.changeLifeBy(-2)
             scene.cameraShake(4, 200)
-            sprites.destroy(otherSprite322, effects.ashes, 350)
-            otherSprite322.destroy()
             music.thump.play()
         })
     })
@@ -1500,7 +1498,7 @@ function game2() {
     //  Funciones para que te sigan los enemigos al detectarte a una distancia "custom" segun el tipo de mob
     game.onUpdate(function on_on_update() {
         for (let value24 of sprites.allOfKind(SpriteKind.Monster_mob)) {
-            if (value24.x > mySprite.x - 20 && value24.x < mySprite.x + 20 && (value24.x > mySprite.x - 20 && value24.x < mySprite.x + 20)) {
+            if (value24.x > mySprite.x - 30 && value24.x < mySprite.x + 30 && (value24.x > mySprite.x - 30 && value24.x < mySprite.x + 30)) {
                 value24.follow(mySprite, 20)
             }
             
@@ -1508,7 +1506,7 @@ function game2() {
     })
     game.onUpdate(function on_on_update2() {
         for (let value43 of sprites.allOfKind(SpriteKind.Phantom_mob)) {
-            if (value43.x > mySprite.x - 30 && value43.x < mySprite.x + 30 && (value43.x > mySprite.x - 30 && value43.x < mySprite.x + 30)) {
+            if (value43.x > mySprite.x - 50 && value43.x < mySprite.x + 50 && (value43.x > mySprite.x - 50 && value43.x < mySprite.x + 50)) {
                 value43.follow(mySprite, 75)
             }
             
@@ -1524,7 +1522,7 @@ function game2() {
     })
     game.onUpdate(function on_on_update4() {
         for (let value23 of sprites.allOfKind(SpriteKind.Crab_mob)) {
-            if (value23.x > mySprite.x - 8 && value23.x < mySprite.x + 8 && (value23.x > mySprite.x - 8 && value23.x < mySprite.x + 8)) {
+            if (value23.x > mySprite.x - 20 && value23.x < mySprite.x + 20 && (value23.x > mySprite.x - 20 && value23.x < mySprite.x + 20)) {
                 value23.follow(mySprite, 8)
             }
             
