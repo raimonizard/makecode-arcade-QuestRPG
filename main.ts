@@ -91,7 +91,7 @@ let spawn_number_mobs2 = 0
 let spawn_number_mobs = 0
 let enemy_kills = 0
 let os1 = false
-warning_text = "Abans de utilitzar al teletransportador, ves a veure al mag"
+warning_text = "Abans d'utilitzar al teletransportador, ves a veure al mag"
 direction = 0
 let height = 160
 let width = 120
@@ -928,7 +928,7 @@ function game2() {
             keep_asking = true
             game.splash("\"Hola\"")
             game.splash("\"Gràcies per venir\"")
-            game.splash("\"T'hem cridat ja que tenim uns quants problemes en el pobles\"")
+            game.splash("\"T'hem cridat ja que tenim uns quants problemes en els pobles\"")
             game.splash("\"Ens ajudaràs?\"")
             while (keep_asking == true) {
                 user_option = game.askForString("")
@@ -950,7 +950,7 @@ function game2() {
             game.splash("\"S'hem oblida alguna cosa ... \"")
             game.splash("\"JA SÈ! IMPORTANT ! \"")
             game.splash("\"Per cada missió que completis tindràs un recompensa,\"")
-            game.splash("\"així que no t'oblidis de buscarme\"")
+            game.splash("\"així que no t'oblidis de buscar-me\"")
             game.splash("\"Com a últim punt, per anar cap a la zona dels pobles, has d'anar abaix a la dreta del mapa i agafar el teletransportador\"")
         }
         
@@ -963,7 +963,7 @@ function game2() {
         if (conversation_done5 == false) {
             game.splash("\"Si has ajudat al altre alcalde, junt amb aquesta clau podrás entrar a la casa abandonada\"")
             game.splash("\"Hey Max! Gràcies per venir, tenim un gran problema.\"")
-            game.splash("\"La casa més gran porta anys abandonada, però últimament, sentim sorolls estranys al soterrani.\"")
+            game.splash("\"La casa més gran porta anys abandonada, però últimament, sentim sorolls extranys al soterrani.\"")
             game.splash("\"Hi ha històries que diuen que pot ser l'entrada d'una antiga masmorra.\"")
             game.splash("\"Ves i descobreix què està passant.\"")
             reward = "'Mitja Clau Pt2 [Casa Encantada]'"
@@ -979,7 +979,7 @@ function game2() {
         if (conversation_done5 == false) {
             game.splash("\"Max, la situació és crítica. Monstres al voltant del llac (segint el camí cap a la dreta) impedeixen pescar i tallar fusta.\"")
             game.splash("\"Sense menjar ni llenya, l'hivern serà dur.\"")
-            game.splash("\"Vés al llac, elimina els monstres i assegura la supervivència de Johto.\"")
+            game.splash("\"Ves al llac, elimina els monstres i assegura la supervivència de Johto.\"")
             game.splash("\"Confiem en tu, Max!\"")
             game.showLongText("Has aconseguit la missió 'Mata als monstres del bosc', un cop finalitzada rebrás una recompensa", DialogLayout.Bottom)
         }
@@ -1007,6 +1007,15 @@ function game2() {
         sprites.destroy(otherSprite322, effects.ashes, 350)
         otherSprite322.destroy()
         music.thump.play()
+    })
+    sprites.onOverlap(SpriteKind.Player, SpriteKind.Phantom_boss_mob, function on_on_overlap20(sprite6: Sprite, otherSprite322: Sprite) {
+        timer.throttle("action", 500, function on_throttle2() {
+            info.changeLifeBy(-2)
+            scene.cameraShake(4, 200)
+            sprites.destroy(otherSprite322, effects.ashes, 350)
+            otherSprite322.destroy()
+            music.thump.play()
+        })
     })
     sprites.onOverlap(SpriteKind.Player, SpriteKind.Snake_mob, function on_on_overlap6(sprite25: Sprite, otherSprite63: Sprite) {
         info.changeLifeBy(-2)
@@ -1224,7 +1233,7 @@ function game2() {
         if (conversation_done6 == false) {
             game.splash("\"Puff, cada cop hi han més perills\"")
             game.splash("\"Per sort, aquesta zona es tranquila\"")
-            game.splash("\"La zona més perillosa es sens dubte el Est\"")
+            game.splash("\"La zona més perillosa es sens dubte al Est\"")
         }
         
         conversation_done6 = true

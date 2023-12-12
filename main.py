@@ -90,7 +90,7 @@ spawn_number_mobs2 = 0
 spawn_number_mobs = 0
 enemy_kills = 0
 os1 = False
-warning_text = "Abans de utilitzar al teletransportador, ves a veure al mag"
+warning_text = "Abans d'utilitzar al teletransportador, ves a veure al mag"
 direction = 0
 height = 160
 width = 120
@@ -914,7 +914,7 @@ def game2():
             keep_asking = True
             game.splash("\"Hola\"")
             game.splash("\"Gràcies per venir\"")
-            game.splash("\"T'hem cridat ja que tenim uns quants problemes en el pobles\"")
+            game.splash("\"T'hem cridat ja que tenim uns quants problemes en els pobles\"")
             game.splash("\"Ens ajudaràs?\"")
             while keep_asking == True:
                 user_option = game.ask_for_string("")
@@ -933,7 +933,7 @@ def game2():
             game.splash("\"S'hem oblida alguna cosa ... \"")
             game.splash("\"JA SÈ! IMPORTANT ! \"")
             game.splash("\"Per cada missió que completis tindràs un recompensa,\"")
-            game.splash("\"així que no t'oblidis de buscarme\"")
+            game.splash("\"així que no t'oblidis de buscar-me\"")
             game.splash("\"Com a últim punt, per anar cap a la zona dels pobles, has d'anar abaix a la dreta del mapa i agafar el teletransportador\"")
         conversation_done = True
     scene.on_overlap_tile(SpriteKind.player,
@@ -946,7 +946,7 @@ def game2():
         if conversation_done5 == False:
             game.splash("\"Si has ajudat al altre alcalde, junt amb aquesta clau podrás entrar a la casa abandonada\"")
             game.splash("\"Hey Max! Gràcies per venir, tenim un gran problema.\"")
-            game.splash("\"La casa més gran porta anys abandonada, però últimament, sentim sorolls estranys al soterrani.\"")
+            game.splash("\"La casa més gran porta anys abandonada, però últimament, sentim sorolls extranys al soterrani.\"")
             game.splash("\"Hi ha històries que diuen que pot ser l'entrada d'una antiga masmorra.\"")
             game.splash("\"Ves i descobreix què està passant.\"")
             reward = "'Mitja Clau Pt2 [Casa Encantada]'"
@@ -961,7 +961,7 @@ def game2():
         if conversation_done5 == False:
             game.splash("\"Max, la situació és crítica. Monstres al voltant del llac (segint el camí cap a la dreta) impedeixen pescar i tallar fusta.\"")
             game.splash("\"Sense menjar ni llenya, l'hivern serà dur.\"")
-            game.splash("\"Vés al llac, elimina els monstres i assegura la supervivència de Johto.\"")
+            game.splash("\"Ves al llac, elimina els monstres i assegura la supervivència de Johto.\"")
             game.splash("\"Confiem en tu, Max!\"")
             game.show_long_text("Has aconseguit la missió 'Mata als monstres del bosc', un cop finalitzada rebrás una recompensa",
                 DialogLayout.BOTTOM)
@@ -992,6 +992,16 @@ def game2():
         otherSprite322.destroy()
         music.thump.play()
     sprites.on_overlap(SpriteKind.player, SpriteKind.Crab_mob, on_on_overlap13)
+
+    def on_on_overlap20(sprite6, otherSprite322):
+        def on_throttle2():
+            info.change_life_by(-2)
+            scene.camera_shake(4, 200)
+            sprites.destroy(otherSprite322, effects.ashes, 350)
+            otherSprite322.destroy()
+            music.thump.play()
+        timer.throttle("action", 500, on_throttle2)
+    sprites.on_overlap(SpriteKind.player, SpriteKind.Phantom_boss_mob, on_on_overlap20)
 
     def on_on_overlap6(sprite25, otherSprite63):
         info.change_life_by(-2)
@@ -1209,7 +1219,7 @@ def game2():
         if conversation_done6 == False:
             game.splash("\"Puff, cada cop hi han més perills\"")
             game.splash("\"Per sort, aquesta zona es tranquila\"")
-            game.splash("\"La zona més perillosa es sens dubte el Est\"")
+            game.splash("\"La zona més perillosa es sens dubte al Est\"")
         conversation_done6 = True
     sprites.on_overlap(SpriteKind.player, SpriteKind.Citizen2, on_on_overlap10)
 
