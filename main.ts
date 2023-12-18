@@ -15,6 +15,7 @@ namespace SpriteKind {
     export const Phantom_mob = SpriteKind.create()
     export const Phantom_boss_mob = SpriteKind.create()
     export const enemie_projectile = SpriteKind.create()
+    export const Villagers = SpriteKind.create()
 }
 
 // Variables
@@ -203,12 +204,28 @@ function game2() {
         citizen_mayor2 = sprites.create(assets.image`
             citizen_mayor
         `, SpriteKind.Mayor1)
+        let villager_1 = sprites.create(assets.image`
+            villager1
+        `, SpriteKind.Villagers)
+        let villager_2 = sprites.create(assets.image`
+            villager4
+        `, SpriteKind.Villagers)
+        let villager_3 = sprites.create(assets.image`
+            villager6
+        `, SpriteKind.Villagers)
+        let villager_4 = sprites.create(assets.image`
+            villager4
+        `, SpriteKind.Villagers)
         PC_master.setPosition(100, 60)
         citizen_jake.setPosition(520, 185)
         citizen_jake2.setPosition(260, 465)
         citizen_jake3.setPosition(1475, 670)
         citizen_mayor.setPosition(1140, 175)
+        villager_1.setPosition(1433, 150)
+        villager_2.setPosition(1525, 175)
         citizen_mayor2.setPosition(490, 1165)
+        villager_3.setPosition(260, 1483)
+        villager_4.setPosition(487, 1723)
     }
     
     //  Funciónes para crear montruos enemigos
@@ -335,48 +352,48 @@ function game2() {
     //  Función para los mobs creados, spawnerlos en el mapa
     function create_all_mobs() {
         //  Spawn dels "Monster_mob"
-        create_mob_cap(list_mobcap_enemyMobs1, 10)
+        create_mob_cap(list_mobcap_enemyMobs1, 7)
         generate_mobs_in_map(list_mobcap_enemyMobs1, 1350, 1800, 850, 1150)
-        create_mob_cap(list_mobcap_enemyMobs2, 6)
+        create_mob_cap(list_mobcap_enemyMobs2, 5)
         generate_mobs_in_map(list_mobcap_enemyMobs2, 1550, 1800, 200, 550)
         //  Spawn dels "Peaceful_mob"
         //  Big lake
-        create_mob_cap_fish2(list_mobcap_fish1, 3)
+        create_mob_cap_fish2(list_mobcap_fish1, 2)
         generate_mobs_in_map(list_mobcap_fish1, 780, 900, 710, 960)
         create_mob_cap_fish(list_mobcap_fish2, 2)
         generate_mobs_in_map(list_mobcap_fish2, 640, 740, 710, 960)
         create_mob_cap_fish(list_mobcap_fish3, 2)
         generate_mobs_in_map(list_mobcap_fish3, 640, 840, 650, 800)
-        create_mob_cap_fish2(list_mobcap_fish4, 3)
+        create_mob_cap_fish2(list_mobcap_fish4, 2)
         generate_mobs_in_map(list_mobcap_fish4, 540, 640, 740, 850)
         //  Small left lake
-        create_mob_cap_fish(list_mobcap_fish5, 3)
+        create_mob_cap_fish(list_mobcap_fish5, 2)
         generate_mobs_in_map(list_mobcap_fish5, 75, 125, 1150, 1275)
         create_mob_cap_fish2(list_mobcap_fish6, 2)
         generate_mobs_in_map(list_mobcap_fish6, 75, 125, 1150, 1275)
         //  Small right lake
         create_mob_cap_fish(list_mobcap_fish7, 2)
         generate_mobs_in_map(list_mobcap_fish7, 1660, 1725, 80, 170)
-        create_mob_cap_fish2(list_mobcap_fish8, 3)
+        create_mob_cap_fish2(list_mobcap_fish8, 2)
         generate_mobs_in_map(list_mobcap_fish8, 1660, 1750, 80, 170)
         //  Spawn dels "Crab_mob"
         create_mob_cap_crab(list_mobcap_crab1, 3)
         generate_mobs_in_map(list_mobcap_crab1, 560, 620, 600, 700)
-        create_mob_cap_crab(list_mobcap_crab2, 3)
+        create_mob_cap_crab(list_mobcap_crab2, 2)
         generate_mobs_in_map(list_mobcap_crab2, 920, 1000, 700, 800)
         create_mob_cap_crab(list_mobcap_crab3, 3)
         generate_mobs_in_map(list_mobcap_crab3, 560, 620, 970, 1020)
-        create_mob_cap_crab(list_mobcap_crab4, 3)
+        create_mob_cap_crab(list_mobcap_crab4, 2)
         generate_mobs_in_map(list_mobcap_crab4, 820, 900, 1000, 1070)
         //  Spawn dels "Snake_mob"
         create_mob_cap_snake(list_mobcap_snake1, 3)
         generate_mobs_in_map(list_mobcap_snake1, 1100, 1200, 1700, 1800)
-        create_mob_cap_snake(list_mobcap_snake2, 3)
+        create_mob_cap_snake(list_mobcap_snake2, 2)
         generate_mobs_in_map(list_mobcap_snake2, 1200, 1340, 1460, 1520)
         create_mob_cap_snake(list_mobcap_snake3, 3)
         generate_mobs_in_map(list_mobcap_snake3, 1600, 1780, 1350, 1450)
         //  Spawn dels "Phantom_mob"
-        create_mob_cap_phantom(list_mobcap_phantom, 8)
+        create_mob_cap_phantom(list_mobcap_phantom, 7)
         generate_mobs_in_map(list_mobcap_phantom, 1500, 1850, 1675, 1900)
         //  Spawn del "Phantom_boss"
         create_mob_cap_phantom_boss(list_mobcap_phantomboss, 1)

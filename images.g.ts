@@ -455,6 +455,188 @@ f f . . . . . . 1 b . . . . . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image19":
+            case "villager1":return img`
+. f f f . f f f f . f f f . 
+f f f f f c c c c f f f f f 
+f f f f b c c c c b f f f f 
+f f f c 3 c c c c 3 c f f f 
+. f 3 3 c c c c c c 3 3 f . 
+. f c c c c 4 4 c c c c f . 
+. f f c c 4 4 4 4 c c f f . 
+. f f f b f 4 4 f b f f f . 
+. f f 4 1 f d d f 1 4 f f . 
+. . f f d d d d d d f f . . 
+. . e f e 4 4 4 4 e f e . . 
+. e 4 f b 3 3 3 3 b f 4 e . 
+. 4 d f 3 3 3 3 3 3 c d 4 . 
+. 4 4 f 6 6 6 6 6 6 f 4 4 . 
+. . . . f f f f f f . . . . 
+. . . . f f . . f f . . . . 
+`;
+            case "image22":
+            case "villager2":return img`
+. . . . f f f f f . f f f . 
+. . . f f c c c c f f f f f 
+. . f c c c c c c b f f f f 
+. . f c c c c c c 3 c f f f 
+. f c c c c c c c c 3 3 f . 
+. f c c 4 c c c c c f f f . 
+. f f e 4 4 c c c f f f f . 
+. f f e 4 4 f b f 4 4 f f . 
+. . f f d d f 1 4 d 4 f . . 
+. . . f d d d d 4 f f f . . 
+. . . f e 4 4 4 e e f . . . 
+. . . f 3 3 3 e d d 4 . . . 
+. . . f 3 3 3 e d d e . . . 
+. . . f 6 6 6 f e e f . . . 
+. . . . f f f f f f . . . . 
+. . . . . . f f f . . . . . 
+`;
+            case "image23":
+            case "villager3":return img`
+. . . . . f f f f . . . . . 
+. . . f f 5 5 5 5 f f . . . 
+. . f 5 5 5 5 5 5 5 5 f . . 
+. f 5 5 5 5 5 5 5 5 5 5 f . 
+. f 5 5 5 d b b d 5 5 5 f . 
+f 5 5 5 b 4 4 4 4 b 5 5 5 f 
+f 5 5 c c 4 4 4 4 c c 5 5 f 
+f b b f b f 4 4 f b f b b f 
+f b b 4 1 f d d f 1 4 b b f 
+. f b f d d d d d d f b f . 
+. f e f e 4 4 4 4 e f e f . 
+. e 4 f 6 9 9 9 9 6 f 4 e . 
+. 4 d c 9 9 9 9 9 9 c d 4 . 
+. 4 f b 3 b 3 b 3 b b f 4 . 
+. . f f 3 b 3 b 3 3 f f . . 
+. . . . f f b b f f . . . . 
+`;
+            case "image24":
+            case "villager4":return img`
+. . . f f f c c c . . . . . 
+. f f 5 5 5 5 5 5 f f . . . 
+. f 5 5 5 5 5 5 5 5 5 f . . 
+f 5 5 5 5 5 5 5 5 5 5 5 c . 
+f 5 5 b d 5 5 5 5 5 5 5 c . 
+f 5 d 4 4 b 5 5 5 5 5 5 5 f 
+f 5 b 4 4 4 c c 5 5 5 5 5 f 
+f f f 4 4 c b c b 5 5 5 b f 
+. f f d d c 1 e b b b b b c 
+. . f d d d d 4 f b b b b c 
+. . f 4 4 4 e e e 4 b b c . 
+. . f 9 9 9 e d d 4 f f . . 
+. . f 9 9 9 e d d e f . . . 
+. f 3 3 b 3 b e e b f . . . 
+. f f 3 b 3 b 3 b f f . . . 
+. . . f f b b f f . . . . . 
+`;
+            case "image25":
+            case "villager5":return img`
+. . . . . c c c f f f . . . 
+. . . f f 5 5 5 5 5 5 f f . 
+. . f 5 5 5 5 5 5 5 5 5 f . 
+. c 5 5 5 5 5 5 5 5 5 5 5 f 
+. c 5 5 5 5 5 5 5 d b 5 5 f 
+f 5 5 5 5 5 5 5 b 4 4 d 5 f 
+f 5 5 5 5 5 c c 4 4 4 b 5 f 
+f b 5 5 5 b c b c 4 4 f f f 
+c b b b b b e 1 c d d f f . 
+c b b b b f 4 d d d d f . . 
+. c b b 4 e e e 4 4 4 f . . 
+. . f f 4 d d e 9 9 9 f . . 
+. . . f e d d e 9 9 9 f . . 
+. . . f b e e b 3 b 3 3 f . 
+. . . f f b 3 b 3 b 3 f f . 
+. . . . . f f b b f f . . . 
+`;
+            case "image26":
+            case "villager6":return img`
+. f f f . f f f f f . . . . 
+f f f f f c c c c f f . . . 
+f f f f b c c c c c c f . . 
+f f f c 3 c c c c c c f . . 
+. f 3 3 c c c c c c c c f . 
+. f f f c c c c c 4 c c f . 
+. f f f f c c c 4 4 e f f . 
+. f f 4 4 f b f 4 4 e f f . 
+. . f 4 d 4 1 f d d f f . . 
+. . f f f 4 d d d d f . . . 
+. . . f e e 4 4 4 e f . . . 
+. . . 4 d d e 3 3 3 f . . . 
+. . . e d d e 3 3 3 f . . . 
+. . . f e e f 6 6 6 f . . . 
+. . . . f f f f f f . . . . 
+. . . . . f f f . . . . . . 
+`;
+            case "image27":
+            case "dog1":return img`
+. . 4 4 4 . . . . 4 4 4 . . . . 
+. 4 5 5 5 e . . e 5 5 5 4 . . . 
+4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
+4 5 5 4 4 5 5 5 5 4 4 5 5 4 . . 
+e 5 4 4 5 5 5 5 5 5 4 4 5 e . . 
+. e e 5 5 5 5 5 5 5 5 e e . . . 
+. . e 5 f 5 5 5 5 f 5 e . . . . 
+. . f 5 5 5 4 4 5 5 5 f . . f f 
+. . f 4 5 5 f f 5 5 6 f . f 5 f 
+. . . f 6 6 6 6 6 6 4 4 f 5 5 f 
+. . . f 4 5 5 5 5 5 5 4 4 5 f . 
+. . . f 5 5 5 5 5 4 5 5 f f . . 
+. . . f 5 f f f 5 f f 5 f . . . 
+. . . f f . . f f . . f f . . . 
+`;
+            case "image28":
+            case "dog2":return img`
+. . . . . . . . . . . . . . . . 
+. . 4 4 4 . . . . 4 4 4 . . . . 
+. 4 5 5 5 e . . e 5 5 5 4 . . . 
+4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
+4 5 5 4 4 5 5 5 5 4 4 5 5 4 . . 
+e 5 4 4 5 5 5 5 5 5 4 4 5 e . . 
+. e e 5 5 5 5 5 5 5 5 e e . . . 
+. . e 5 f 5 5 5 5 f 5 e . . . . 
+. . f 5 5 5 4 4 5 5 5 f . f f . 
+. . . 4 5 5 f f 5 5 6 f f 5 f . 
+. . . f 6 6 6 6 6 6 4 f 5 5 f . 
+. . . f 5 5 5 5 5 5 5 4 5 f . . 
+. . . . f 5 4 5 f 5 f f f . . . 
+. . . . . f f f f f f f . . . . 
+`;
+            case "image29":
+            case "cat1":return img`
+e e e . . . . e e e . . . . 
+c d d c . . c d d c . . . . 
+c b d d f f d d b c . . . . 
+c 3 b d d b d b 3 c . . . . 
+f b 3 d d d d 3 b f . . . . 
+e d d d d d d d d e . . . . 
+e d f d d d d f d e . b f b 
+f d d f d d f d d f . f d f 
+f b d d b b d d 2 f . f d f 
+. f 2 2 2 2 2 2 b b f f d f 
+. f b d d d d d d b b d b f 
+. f d d d d d b d d f f f . 
+. f d f f f d f f d f . . . 
+. f f . . f f . . f f . . . 
+`;
+            case "image30":
+            case "cat2":return img`
+. . . . . . . . . . . . . . 
+e e e . . . . e e e . . . . 
+c d d c . . c d d c . . . . 
+c b d d f f d d b c . . . . 
+c 3 b d d b d b 3 c . . . . 
+f b 3 d d d d 3 b f . . . . 
+e d d d d d d d d e . . . . 
+e d f d d d d f d e . b f b 
+f d d f d d f d d f . f d f 
+f b d d b b d d 2 b f f d f 
+. f 2 2 2 2 2 2 d b b d b f 
+. f d d d d d d d f f f f . 
+. . f d b d f d f . . . . . 
+. . . f f f f f f . . . . . 
+`;
         }
         return null;
     })

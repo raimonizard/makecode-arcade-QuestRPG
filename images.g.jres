@@ -99,6 +99,56 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "projectile_snake"
     },
+    "image19": {
+        "data": "hwQOABAAAADw/wAAAAAAAP////8P4EQA///D//9OTQD/z8P89P//APA7zLzRvmP/z8zM9N80Y//PzExE3TRjD8/MTETdNGMPz8zM9N80Y//wO8y80b5j///Pw/z0//wA///D//9OTQD/////D+BEAPD/AAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager1"
+    },
+    "image22": {
+        "data": "hwQOABAAAAAAAAAAAAAAAAAA//8AAAAAAP/M/w8AAADwzMzu////AP/MTETdPmMPz8zMRN00Yw/PzMz83zRj/8/MzLzR5P7/z8zM/ETe7f/wO8xP/d7tD//P80/0T/4A///z//8AAAD/////AAAAAPD/AAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager2"
+    },
+    "image23": {
+        "data": "hwQOABAAAAAAAPD/DwAAAADwX7X770QAAF9VtbtO/Q/wVVX89P+8D/BVtbzRbjnzX1VN9N+UuftfVUtE3ZQ5s19VS0TdlLm7X1VN9N+UOfPwVbW80W658/BVVfz0/7wPAF9VtbtO/Q8A8F+1++9EAAAA8P8PAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager3"
+    },
+    "image24": {
+        "data": "hwQOABAAAAAA8P//AAAAAPBfVfUPAPAP8FXV+///Pw9fVUtE3ZQ5819VTUTdlLn7X1W1xNyUObNcVVW80e6+u1xVVcxO3u3zXFVVtfve7fvwVVVVu0S+D/BVVVW7+/8PAF9VVbv7AAAAwFy1uwwAAAAA8P/MAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager4"
+    },
+    "image25": {
+        "data": "hwQOABAAAAAAAPD/zAAAAADAXLW7DAAAAF9VVbv7AADwVVVVu/v/D/BVVVW7RL4PXFVVtfve7ftcVVXMTt7t81xVVbzR7r67X1W1xNyUObNfVU1E3ZS5+19VS0TdlDnz8FXV+///Pw/wX1X1DwDwDwDw//8AAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager5"
+    },
+    "image26": {
+        "data": "hwQOABAAAADw/wAAAAAAAP////8AAAAA///z//8AAAD/z/NP9E/+APA7zE/93u0Pz8zM/ETe7f/PzMy80eT+/8/MzPzfNGP/z8zMRN00Yw//zExE3T5jD/DMzO7///8AAP/M/w8AAAAAAP//AAAAAAAAAAAAAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "villager6"
+    },
+    "image27": {
+        "data": "hwQQAA4AAAAARA4AAAAAAEBV5QAAAAAAVFXk/g8AAABURVRV9P//AFRFVV9lVPUA4FVVVWVVDwAAXlVFb1UPAABeVUVvVf8A4FVVVWVV9QBURVVfZUUPAFRFVFVGVQ8AVFXk/k9U9QBAVeUA8PT/AABEDgBf9QAAAAAA8FUPAAAAAADw/wAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dog1"
+    },
+    "image28": {
+        "data": "hwQQAA4AAAAAQOQAAAAAAABUVQ4AAAAAQFVF7g8AAABAVURVRf8AAEBVVPVVVg8AAF5VVVVW9QAA4FVV9Fb0AADgVVX0VvUAAF5VVVVW/wBAVVT1VVb1AEBVRFVlVP8AQFVF7v9P/wAAVFUO8FUPAABA5ABf9QAAAAAAAP8PAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dog2"
+    },
+    "image29": {
+        "data": "hwQOAA4AAADOzO/+DwAAAN472937//8A3r3T3y3b/QDA3d39Ld0PAADf3d0r3Q8AAL/d3Svd/wDA3d39Ld39AN69098tvQ8A3jvb3bLdDwDOzO/+v9v9AAAAAADw+/8AAAAA+//9AAAAAADf3fsAAAAAAPv/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "cat1"
+    },
+    "image30": {
+        "data": "hwQOAA4AAADgzPzu/wAAAOC9s929/wAA4N07/d3SDwAA3N3d39L9AADw3d290vsAAPDb3b3S/QAA3N3d39L/AODdO/3d0v0A4L2z3S3d/wDgzPzuv/sAAAAAAADw+wAAAAAAsP/9AAAAAADw3fsAAAAAALD/DwAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "cat2"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
