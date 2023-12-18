@@ -43,9 +43,9 @@ let chest_2_open = false
 let chest_3_open = false
 let chest_lava_open = false
 let a = 0
-let speedy222 = 300
+let speedy222 = 90
 // SpeedYSpritePrincipal
-let speedx222 = 300
+let speedx222 = 90
 // SpeedXSpritePrincipal
 let projectile : Sprite = null
 let list_mobcap_snake3 : Sprite[] = []
