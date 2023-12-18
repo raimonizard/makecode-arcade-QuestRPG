@@ -15,7 +15,13 @@ class SpriteKind:
     Monster_mob = SpriteKind.create()
     Phantom_mob = SpriteKind.create()
     Phantom_boss_mob = SpriteKind.create()
+    enemie_projectile = SpriteKind.create()
+    
 #Variables
+dx = 0
+dy = 0
+radians = 0
+projectile50: Sprite = None
 sprite_house4: Sprite = None
 sprite_house2: Sprite = None
 conversation_done7 = False
@@ -36,8 +42,8 @@ chest_2_open = False
 chest_3_open = False
 chest_lava_open = False
 a = 0
-speedy222 = 85
-speedx222 = 85
+speedy222 = 300 #SpeedYSpritePrincipal
+speedx222 = 300 #SpeedXSpritePrincipal
 projectile: Sprite = None
 list_mobcap_snake3: List[Sprite] = []
 list_mobcap_snake2: List[Sprite] = []
@@ -845,7 +851,7 @@ def game2():
             y_pos_mob1 = randint(y1, y2)
             mob.set_position(x_pos_mob1, y_pos_mob1)
 
-    # Dirección de donde mira el jugador
+    # Dirección de donde mira el jugador cambiar dirección del proyectil
     def on_a_pressed():
         global projectile
         if direction == 1:
@@ -1032,6 +1038,11 @@ def game2():
             snake_killed = 1
             count_kills(enemymobs_killed, "snake", 1)
     sprites.on_overlap(SpriteKind.projectile, SpriteKind.Snake_mob, on_on_overlap15)
+
+    def on_on_overlap20(sprite2424, otherSprite324):
+        sprites.destroy(sprite2424)
+        info.change_life_by(-1)
+    sprites.on_overlap(SpriteKind.enemie_projectile, SpriteKind.player, on_on_overlap20)
 
     def on_on_overlap8(sprite23, otherSprite33):
         sprites.destroy(sprite23)
@@ -1239,36 +1250,9 @@ def game2():
     def on_overlap_tile4(sprite10, location3):
         def on_throttle():
             global a, chest_1_open, speedy222, speedx222
-            a = randint(0, 5)
+            a = randint(0, 6)
             if chest_1_open == False:
-                if a == 0:
-                    reward22 = "1 vida extra"
-                    info.change_life_by(1)
-                    game.show_long_text("Has aconseguit: " + reward22, DialogLayout.BOTTOM)
-                if a == 1:
-                    reward22 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.show_long_text("Has aconseguit: " + reward22, DialogLayout.BOTTOM)
-                if a == 2:
-                    reward22 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.show_long_text("Has aconseguit: " + reward22, DialogLayout.BOTTOM)
-                if a == 3:
-                    reward22 = "3 vida extra"
-                    info.change_life_by(3)
-                    game.show_long_text("Has aconseguit: " + reward22, DialogLayout.BOTTOM)
-                if a == 4:
-                    reward22 = "5 vida extra"
-                    info.change_life_by(5)
-                    game.show_long_text("Has aconseguit: " + reward22, DialogLayout.BOTTOM)
-                if a == 5:
-                    game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
+                chest_reward(a)
             else:
                 game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
             chest_1_open = True
@@ -1282,36 +1266,9 @@ def game2():
     def on_overlap_tile7(sprite103, location34):
         def on_throttle3():
             global a, chest_3_open
-            a = randint(0, 5)
+            a = randint(0, 6)
             if chest_3_open == False:
-                if a == 0:
-                    reward223 = "1 vida extra"
-                    info.change_life_by(1)
-                    game.show_long_text("Has aconseguit: " + reward223, DialogLayout.BOTTOM)
-                if a == 1:
-                    reward223 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.show_long_text("Has aconseguit: " + reward223, DialogLayout.BOTTOM)
-                if a == 2:
-                    reward223 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.show_long_text("Has aconseguit: " + reward223, DialogLayout.BOTTOM)
-                if a == 3:
-                    reward223 = "3 vida extra"
-                    info.change_life_by(3)
-                    game.show_long_text("Has aconseguit: " + reward223, DialogLayout.BOTTOM)
-                if a == 4:
-                    reward223 = "5 vida extra"
-                    info.change_life_by(5)
-                    game.show_long_text("Has aconseguit: " + reward223, DialogLayout.BOTTOM)
-                if a == 5:
-                    game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
+                chest_reward(a)
             else:
                 game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
             chest_3_open = True
@@ -1325,36 +1282,9 @@ def game2():
     def on_overlap_tile10(sprite102, location33):
         def on_throttle4():
             global a, chest_2_open
-            a = randint(0, 5)
+            a = randint(0, 6)
             if chest_2_open == False:
-                if a == 0:
-                    reward222 = "1 vida extra"
-                    info.change_life_by(1)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 1:
-                    reward222 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 2:
-                    reward222 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 3:
-                    reward222 = "3 vida extra"
-                    info.change_life_by(3)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 4:
-                    reward222 = "5 vida extra"
-                    info.change_life_by(5)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 5:
-                    game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
+                chest_reward(a)
             else:
                 game.show_long_text("Ja has obert aquest cofre ", DialogLayout.BOTTOM)
             chest_2_open = True
@@ -1368,36 +1298,9 @@ def game2():
     def on_overlap_tile_chest_lava(sprite102, location33):
         def on_throttle4():
             global a, chest_lava_open
-            a = randint(0, 5)
+            a = randint(0, 6)
             if chest_lava_open == False:
-                if a == 0:
-                    reward222 = "1 vida extra"
-                    info.change_life_by(1)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 1:
-                    reward222 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 2:
-                    reward222 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 3:
-                    reward222 = "3 vida extra"
-                    info.change_life_by(3)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 4:
-                    reward222 = "5 vida extra"
-                    info.change_life_by(5)
-                    game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
-                if a == 5:
-                    game.show_long_text("El cofre estava buit ", DialogLayout.BOTTOM)
+                chest_reward(a)
             else:
                 game.show_long_text("Ja has obert aquest cofre ", DialogLayout.BOTTOM)
             chest_lava_open = True
@@ -1407,6 +1310,48 @@ def game2():
             myTile0
         """),
         on_overlap_tile_chest_lava)
+
+    # Función para dar el contenido de los cofreas
+    def chest_reward(a: int):
+        if a == 0:
+            reward222 = "Botes de Jhonia [+25 de velocitat]"
+            speedy222 = speedy222 + 25
+            speedx222 = speedx222 + 25
+            speedx2 = speedx2 + 25
+            speedy2 = speedy2 + 25
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+        if a == 1:
+            reward222 = "5 vida extra"
+            info.change_life_by(5)
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+        if a == 2:
+            reward222 = "Botes de Ragnar [+40 de velocitat]"
+            speedy222 = speedy222 + 40
+            speedx222 = speedx222 + 40
+            speedx2 = speedx2 + 40
+            speedy2 = speedy2 + 40
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+        if a == 3:
+            reward222 = "7 vida extra"
+            info.change_life_by(3)
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+        if a == 4:
+            game.show_long_text("El cofre estava buit, no has trobat res", DialogLayout.BOTTOM)
+        if a == 5:
+            reward222 = "Botes de Ragnar [+40 de velocitat]"
+            speedy222 = speedy222 + 40
+            speedx222 = speedx222 + 40
+            speedx2 = speedx2 + 40
+            speedy2 = speedy2 + 40
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+        if a == 6:
+            reward222 = "Botes de Jhonia [+25 de velocitat]"
+            speedy222 = speedy222 + 25
+            speedx222 = speedx222 + 25
+            speedx2 = speedx2 + 25
+            speedy2 = speedy2 + 25
+            game.show_long_text("Has aconseguit: " + reward222, DialogLayout.BOTTOM)
+
 
     # Función para detectar cuando la status bar esta a 0
     def on_on_zero(status):
@@ -1418,8 +1363,17 @@ def game2():
         for value24 in sprites.all_of_kind(SpriteKind.Monster_mob):
             if value24.x > mySprite.x - 30 and value24.x < mySprite.x + 30 and (value24.x > mySprite.x - 30 and value24.x < mySprite.x + 30):
                 value24.follow(mySprite, 20)
+                #Creamos projectiles al enemigo
+                def on_after():
+                    dx = mySprite.y - value24.y
+                    dy = mySprite.x - value24.x
+                    radians = Math.atan2(dx, dy)
+                    projectile2 = sprites.create_projectile_from_sprite(assets.image("""projectile_monster"""),value24,Math.cos(radians),Math.sin(radians))
+                    projectile2.set_kind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 100, Math.sin(radians) * 100)
+                timer.after(100, on_after)
     game.on_update(on_on_update)
-
+    
     def on_on_update2():
         for value43 in sprites.all_of_kind(SpriteKind.Phantom_mob):
             if value43.x > mySprite.x - 50 and value43.x < mySprite.x + 50 and (value43.x > mySprite.x - 50 and value43.x < mySprite.x + 50):
@@ -1430,6 +1384,14 @@ def game2():
         for value22 in sprites.all_of_kind(SpriteKind.Snake_mob):
             if value22.x > mySprite.x - 30 and value22.x < mySprite.x + 30 and (value22.x > mySprite.x - 30 and value22.x < mySprite.x + 30):
                 value22.follow(mySprite, 30)
+                def on_after():
+                    dx = mySprite.y - value22.y
+                    dy = mySprite.x - value22.x
+                    radians = Math.atan2(dx, dy)
+                    projectile2 = sprites.create_projectile_from_sprite(assets.image("""projectile_snake"""),value22,Math.cos(radians),Math.sin(radians))
+                    projectile2.set_kind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 75, Math.sin(radians) * 75)
+                timer.after(100, on_after)
     game.on_update(on_on_update3)
 
     def on_on_update4():
@@ -1442,6 +1404,14 @@ def game2():
         for boss in sprites.all_of_kind(SpriteKind.Phantom_boss_mob):
             if boss.x > mySprite.x - 100 and boss.x < mySprite.x + 100 and (boss.x > mySprite.x - 100 and boss.x < mySprite.x + 100):
                 boss.follow(mySprite, 25)
+                def on_throttle():
+                    dx = mySprite.y - boss.y
+                    dy = mySprite.x - boss.x
+                    radians = Math.atan2(dx, dy)
+                    projectile2 = sprites.create_projectile_from_sprite(assets.image("""projectile_phantomboss"""),boss,Math.cos(radians),Math.sin(radians))
+                    projectile2.set_kind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 150, Math.sin(radians) * 150)
+                timer.throttle("action", 100, on_throttle)
     game.on_update(on_on_update_boss)
 
     # Función para ver cuando tienes los dos llaves en tu inventario

@@ -14,9 +14,14 @@ namespace SpriteKind {
     export const Monster_mob = SpriteKind.create()
     export const Phantom_mob = SpriteKind.create()
     export const Phantom_boss_mob = SpriteKind.create()
+    export const enemie_projectile = SpriteKind.create()
 }
 
 // Variables
+let dx = 0
+let dy = 0
+let radians = 0
+let projectile50 : Sprite = null
 let sprite_house4 : Sprite = null
 let sprite_house2 : Sprite = null
 let conversation_done7 = false
@@ -37,8 +42,10 @@ let chest_2_open = false
 let chest_3_open = false
 let chest_lava_open = false
 let a = 0
-let speedy222 = 85
-let speedx222 = 85
+let speedy222 = 300
+// SpeedYSpritePrincipal
+let speedx222 = 300
+// SpeedXSpritePrincipal
 let projectile : Sprite = null
 let list_mobcap_snake3 : Sprite[] = []
 let list_mobcap_snake2 : Sprite[] = []
@@ -854,7 +861,7 @@ function game2() {
         }
     }
     
-    //  Dirección de donde mira el jugador
+    //  Dirección de donde mira el jugador cambiar dirección del proyectil
     controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
         
         if (direction == 1) {
@@ -1046,6 +1053,10 @@ function game2() {
             count_kills(enemymobs_killed, "snake", 1)
         }
         
+    })
+    sprites.onOverlap(SpriteKind.enemie_projectile, SpriteKind.Player, function on_on_overlap20(sprite2424: Sprite, otherSprite324: Sprite) {
+        sprites.destroy(sprite2424)
+        info.changeLifeBy(-1)
     })
     function on_on_overlap8(sprite23: Sprite, otherSprite33: Sprite) {
         let monster_killed2: any;
@@ -1261,52 +1272,10 @@ function game2() {
             dungeon_chest
         `, function on_overlap_tile4(sprite10: Sprite, location3: tiles.Location) {
         timer.throttle("action", 1000, function on_throttle() {
-            let reward22: string;
-            let speedx2: any;
-            let speedy2: any;
             
-            a = randint(0, 5)
+            a = randint(0, 6)
             if (chest_1_open == false) {
-                if (a == 0) {
-                    reward22 = "1 vida extra"
-                    info.changeLifeBy(1)
-                    game.showLongText("Has aconseguit: " + reward22, DialogLayout.Bottom)
-                }
-                
-                if (a == 1) {
-                    reward22 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.showLongText("Has aconseguit: " + reward22, DialogLayout.Bottom)
-                }
-                
-                if (a == 2) {
-                    reward22 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.showLongText("Has aconseguit: " + reward22, DialogLayout.Bottom)
-                }
-                
-                if (a == 3) {
-                    reward22 = "3 vida extra"
-                    info.changeLifeBy(3)
-                    game.showLongText("Has aconseguit: " + reward22, DialogLayout.Bottom)
-                }
-                
-                if (a == 4) {
-                    reward22 = "5 vida extra"
-                    info.changeLifeBy(5)
-                    game.showLongText("Has aconseguit: " + reward22, DialogLayout.Bottom)
-                }
-                
-                if (a == 5) {
-                    game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
-                }
-                
+                chest_reward(a)
             } else {
                 game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
             }
@@ -1318,54 +1287,10 @@ function game2() {
             dungeon_chest2
         `, function on_overlap_tile7(sprite103: Sprite, location34: tiles.Location) {
         timer.throttle("action", 1000, function on_throttle3() {
-            let reward223: string;
-            let speedy222: number;
-            let speedx222: number;
-            let speedx2: any;
-            let speedy2: any;
             
-            a = randint(0, 5)
+            a = randint(0, 6)
             if (chest_3_open == false) {
-                if (a == 0) {
-                    reward223 = "1 vida extra"
-                    info.changeLifeBy(1)
-                    game.showLongText("Has aconseguit: " + reward223, DialogLayout.Bottom)
-                }
-                
-                if (a == 1) {
-                    reward223 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.showLongText("Has aconseguit: " + reward223, DialogLayout.Bottom)
-                }
-                
-                if (a == 2) {
-                    reward223 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.showLongText("Has aconseguit: " + reward223, DialogLayout.Bottom)
-                }
-                
-                if (a == 3) {
-                    reward223 = "3 vida extra"
-                    info.changeLifeBy(3)
-                    game.showLongText("Has aconseguit: " + reward223, DialogLayout.Bottom)
-                }
-                
-                if (a == 4) {
-                    reward223 = "5 vida extra"
-                    info.changeLifeBy(5)
-                    game.showLongText("Has aconseguit: " + reward223, DialogLayout.Bottom)
-                }
-                
-                if (a == 5) {
-                    game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
-                }
-                
+                chest_reward(a)
             } else {
                 game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
             }
@@ -1377,54 +1302,10 @@ function game2() {
             dungeon_chest1
         `, function on_overlap_tile10(sprite102: Sprite, location33: tiles.Location) {
         timer.throttle("action", 1000, function on_throttle4() {
-            let reward222: string;
-            let speedy222: number;
-            let speedx222: number;
-            let speedx2: any;
-            let speedy2: any;
             
-            a = randint(0, 5)
+            a = randint(0, 6)
             if (chest_2_open == false) {
-                if (a == 0) {
-                    reward222 = "1 vida extra"
-                    info.changeLifeBy(1)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 1) {
-                    reward222 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 2) {
-                    reward222 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 3) {
-                    reward222 = "3 vida extra"
-                    info.changeLifeBy(3)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 4) {
-                    reward222 = "5 vida extra"
-                    info.changeLifeBy(5)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 5) {
-                    game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
-                }
-                
+                chest_reward(a)
             } else {
                 game.showLongText("Ja has obert aquest cofre ", DialogLayout.Bottom)
             }
@@ -1436,54 +1317,10 @@ function game2() {
             myTile0
         `, function on_overlap_tile_chest_lava(sprite102: Sprite, location33: tiles.Location) {
         timer.throttle("action", 1000, function on_throttle4() {
-            let reward222: string;
-            let speedy222: number;
-            let speedx222: number;
-            let speedx2: any;
-            let speedy2: any;
             
-            a = randint(0, 5)
+            a = randint(0, 6)
             if (chest_lava_open == false) {
-                if (a == 0) {
-                    reward222 = "1 vida extra"
-                    info.changeLifeBy(1)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 1) {
-                    reward222 = "Botes de Jhonia [+25 de velocitat]"
-                    speedy222 = speedy222 + 25
-                    speedx222 = speedx222 + 25
-                    speedx2 = speedx2 + 25
-                    speedy2 = speedy2 + 25
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 2) {
-                    reward222 = "Botes de Ragnar [+40 de velocitat]"
-                    speedy222 = speedy222 + 40
-                    speedx222 = speedx222 + 40
-                    speedx2 = speedx2 + 40
-                    speedy2 = speedy2 + 40
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 3) {
-                    reward222 = "3 vida extra"
-                    info.changeLifeBy(3)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 4) {
-                    reward222 = "5 vida extra"
-                    info.changeLifeBy(5)
-                    game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
-                }
-                
-                if (a == 5) {
-                    game.showLongText("El cofre estava buit ", DialogLayout.Bottom)
-                }
-                
+                chest_reward(a)
             } else {
                 game.showLongText("Ja has obert aquest cofre ", DialogLayout.Bottom)
             }
@@ -1491,6 +1328,67 @@ function game2() {
             chest_lava_open = true
         })
     })
+    //  Función para dar el contenido de los cofreas
+    function chest_reward(a: number) {
+        let reward222: string;
+        let speedy222: number;
+        let speedx222: number;
+        let speedx2: any;
+        let speedy2: any;
+        if (a == 0) {
+            reward222 = "Botes de Jhonia [+25 de velocitat]"
+            speedy222 = speedy222 + 25
+            speedx222 = speedx222 + 25
+            speedx2 = speedx2 + 25
+            speedy2 = speedy2 + 25
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+        if (a == 1) {
+            reward222 = "5 vida extra"
+            info.changeLifeBy(5)
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+        if (a == 2) {
+            reward222 = "Botes de Ragnar [+40 de velocitat]"
+            speedy222 = speedy222 + 40
+            speedx222 = speedx222 + 40
+            speedx2 = speedx2 + 40
+            speedy2 = speedy2 + 40
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+        if (a == 3) {
+            reward222 = "7 vida extra"
+            info.changeLifeBy(3)
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+        if (a == 4) {
+            game.showLongText("El cofre estava buit, no has trobat res", DialogLayout.Bottom)
+        }
+        
+        if (a == 5) {
+            reward222 = "Botes de Ragnar [+40 de velocitat]"
+            speedy222 = speedy222 + 40
+            speedx222 = speedx222 + 40
+            speedx2 = speedx2 + 40
+            speedy2 = speedy2 + 40
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+        if (a == 6) {
+            reward222 = "Botes de Jhonia [+25 de velocitat]"
+            speedy222 = speedy222 + 25
+            speedx222 = speedx222 + 25
+            speedx2 = speedx2 + 25
+            speedy2 = speedy2 + 25
+            game.showLongText("Has aconseguit: " + reward222, DialogLayout.Bottom)
+        }
+        
+    }
+    
     //  Función para detectar cuando la status bar esta a 0
     statusbars.onZero(StatusBarKind.Health, function on_on_zero(status: StatusBarSprite) {
         sprites.destroy(statusbar.spriteAttachedTo(), effects.spray, 500)
@@ -1500,6 +1398,15 @@ function game2() {
         for (let value24 of sprites.allOfKind(SpriteKind.Monster_mob)) {
             if (value24.x > mySprite.x - 30 && value24.x < mySprite.x + 30 && (value24.x > mySprite.x - 30 && value24.x < mySprite.x + 30)) {
                 value24.follow(mySprite, 20)
+                // Creamos projectiles al enemigo
+                timer.after(100, function on_after() {
+                    let dx = mySprite.y - value24.y
+                    let dy = mySprite.x - value24.x
+                    let radians = Math.atan2(dx, dy)
+                    let projectile2 = sprites.createProjectileFromSprite(assets.image`projectile_monster`, value24, Math.cos(radians), Math.sin(radians))
+                    projectile2.setKind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 100, Math.sin(radians) * 100)
+                })
             }
             
         }
@@ -1516,6 +1423,14 @@ function game2() {
         for (let value22 of sprites.allOfKind(SpriteKind.Snake_mob)) {
             if (value22.x > mySprite.x - 30 && value22.x < mySprite.x + 30 && (value22.x > mySprite.x - 30 && value22.x < mySprite.x + 30)) {
                 value22.follow(mySprite, 30)
+                timer.after(100, function on_after() {
+                    let dx = mySprite.y - value22.y
+                    let dy = mySprite.x - value22.x
+                    let radians = Math.atan2(dx, dy)
+                    let projectile2 = sprites.createProjectileFromSprite(assets.image`projectile_snake`, value22, Math.cos(radians), Math.sin(radians))
+                    projectile2.setKind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 75, Math.sin(radians) * 75)
+                })
             }
             
         }
@@ -1532,6 +1447,14 @@ function game2() {
         for (let boss of sprites.allOfKind(SpriteKind.Phantom_boss_mob)) {
             if (boss.x > mySprite.x - 100 && boss.x < mySprite.x + 100 && (boss.x > mySprite.x - 100 && boss.x < mySprite.x + 100)) {
                 boss.follow(mySprite, 25)
+                timer.throttle("action", 100, function on_throttle() {
+                    let dx = mySprite.y - boss.y
+                    let dy = mySprite.x - boss.x
+                    let radians = Math.atan2(dx, dy)
+                    let projectile2 = sprites.createProjectileFromSprite(assets.image`projectile_phantomboss`, boss, Math.cos(radians), Math.sin(radians))
+                    projectile2.setKind(SpriteKind.enemie_projectile)
+                    projectile2.setVelocity(Math.cos(radians) * 150, Math.sin(radians) * 150)
+                })
             }
             
         }
